@@ -4,7 +4,7 @@ return [
     /*
      * This is the API Token you got from https://api.igdb.com
      */
-    'api_token' => env('IGDB_TOKEN', ' 4a66c31d21b70869e21fb6b9dfe49ced'),
+    'api_token' => env('IGDB_TOKEN', '4a66c31d21b70869e21fb6b9dfe49ced'),
 
     /*
      * This package caches queries automatically (for 1 hour per default).
