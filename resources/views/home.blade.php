@@ -8,6 +8,9 @@
 
     </head>
     <body>
-      Hello World!
+      Hello World! <br><br>
+      @foreach($games as $game)
+      {{$game['name']}} <br>
+      @endforeach
     </body>
 </html>

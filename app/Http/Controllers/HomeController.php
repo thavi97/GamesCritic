@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use MarcReichel\IGDBLaravel\Models\Game;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,8 @@ class HomeController extends Controller
     public function index()
     {
         //Return the homepage
-        return view('home');
+        $games = Game::where('rating', '>=', 90)->whereBetween('first_release_date', 1546297200, 1577833199)->get();
+        return view('home')->with('games', $games);
     }
 
     /**
@@ -25,6 +27,7 @@ class HomeController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
