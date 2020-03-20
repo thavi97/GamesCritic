@@ -10,7 +10,7 @@
     <body>
       Hello World! <br><br>
       @foreach($games as $game)
-      {{$game['name']}} <br>
+      {{$game['game']['name'] . " " . gmdate("d-m-Y", $game['date'])}} <br>
       @endforeach
     </body>
 </html>

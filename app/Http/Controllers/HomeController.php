@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use MarcReichel\IGDBLaravel\Models\Game;
+use MarcReichel\IGDBLaravel\Models\ReleaseDate;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,9 @@ class HomeController extends Controller
     public function index()
     {
         //Return the homepage
-        $games = Game::where('rating', '>=', 90)->whereBetween('first_release_date', 1546297200, 1577833199)->get();
+        $timestamp = strtotime('1-1-2020');
+        //$games = Game::where('rating', '>=' , 80)->whereBetween('first_release_date', strtotime('-1 month'), strtotime('now'))->get();
+        $games = ReleaseDate::with(['game'])->whereBetween('date', strtotime('-1 month'), strtotime('now'))->get();
         return view('home')->with('games', $games);
     }
 
