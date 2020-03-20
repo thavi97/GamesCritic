@@ -15,10 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //Return the homepage
-        $timestamp = strtotime('1-1-2020');
-        //$games = Game::where('rating', '>=' , 80)->whereBetween('first_release_date', strtotime('-1 month'), strtotime('now'))->get();
-        $games = ReleaseDate::with(['game'])->whereBetween('date', strtotime('-1 month'), strtotime('now'))->get();
+        //Return the homepage with a list of the latest releases.      
+        $games = ReleaseDate::with(['game'])->whereBetween('date', strtotime('-2 month'), strtotime('now'))->orderBy('date', 'desc')->get();
         return view('home')->with('games', $games);
     }
 

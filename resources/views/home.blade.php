@@ -9,8 +9,10 @@
     </head>
     <body>
       Hello World! <br><br>
+
+      <h2>Here are the latest games!</h2>
       @foreach($games as $game)
-      {{$game['game']['name'] . " " . gmdate("d-m-Y", $game['date'])}} <br>
+      {{$game['game']['name'] . " " . $game['game']['aggregated_rating'] ." " . gmdate('d-m-Y', $game['date'])}} <br>
       @endforeach
     </body>
 </html>
