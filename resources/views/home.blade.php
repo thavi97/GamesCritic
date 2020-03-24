@@ -4,9 +4,6 @@
 <div class="col-lg-12 text-center">
   Hello World! <br><br>
   <h2>Here are the latest games!</h2>
-  @foreach($games as $game)
-  {{$game['game']['name'] . " " . $game['game']['aggregated_rating'] ." " . gmdate('d-m-Y', $game['date'])}} <br>
-  @endforeach
 </div>
 
 <div class="container container-fluid">
@@ -28,7 +25,7 @@
           <!--Title-->
           <h4 class="card-title">{{$game['game']['name']}}</h4>
           <!--Text-->
-          <p class="card-text text-truncate">{{$game['game']['summary']}}</p>    
+          <p class="card-text text-truncate">{{$game['game']['summary']}}</p>
         </div>
       </div>
 
