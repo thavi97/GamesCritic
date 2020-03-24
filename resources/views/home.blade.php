@@ -18,7 +18,6 @@
       <div class="card h-100">
         <!--Card image-->
         <div class="view overlay">
-          {{ HTML::image($game['game']['artworks'][0], 'Card image cap', array('class' => 'card-img-top')) }}
           <a href="#!">
             <div class="mask rgba-white-slight"></div>
           </a>
@@ -29,7 +28,7 @@
           <!--Title-->
           <h4 class="card-title">{{$game['game']['name']}}</h4>
           <!--Text-->
-          <p class="card-text">{{$game['game']['summary']}}</p>
+          <p class="card-text text-truncate">{{$game['game']['summary']}}</p>    
         </div>
       </div>
 

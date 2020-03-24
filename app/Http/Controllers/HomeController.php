@@ -17,6 +17,7 @@ class HomeController extends Controller
     {
         //Return the homepage with a list of the latest releases.
         $games = ReleaseDate::with(['game'])->whereBetween('date', strtotime('-2 month'), strtotime('now'))->orderBy('date', 'desc')->get();
+
         return view('home')->with('games', $games);
     }
 
