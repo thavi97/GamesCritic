@@ -4,26 +4,19 @@
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-4">
-      <h2>{{$data['game']['name']}}</h2>
-      <iframe width="320" height="180" src="https://www.youtube.com/embed/{{$data['video']['video_id']}}"></iframe>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-      <h3>Some Links</h3>
-      <p>Lorem ipsum dolor sit ame.</p>
+
+      <h4><a href="{{$data['website']['url']}}">Visit Game</a></h4>
       <hr class="d-sm-none">
     </div>
     <div class="col-sm-8">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      <h2>{{$data['game']['name']}}</h2>
+      <h3>Developed By: {{$data['company']['name']}}</h3>
+      <h4>{{$data['platform']['abbreviation']}} </h4>
+      <h5>Release Date: {{$data['release_date']['human']}}</h5>
+      <p>{{$data['game']['summary']}}</p>
+      <p></p>
       <br>
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </div>
+      </div>
   </div>
 </div>
 

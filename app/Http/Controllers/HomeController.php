@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use MarcReichel\IGDBLaravel\Models\Artwork;
+use MarcReichel\IGDBLaravel\Models\Company;
+use MarcReichel\IGDBLaravel\Models\Cover;
 use MarcReichel\IGDBLaravel\Models\Game;
 use MarcReichel\IGDBLaravel\Models\GameVideo;
+use MarcReichel\IGDBLaravel\Models\InvolvedCompany;
+use MarcReichel\IGDBLaravel\Models\Platform;
 use MarcReichel\IGDBLaravel\Models\ReleaseDate;
+use MarcReichel\IGDBLaravel\Models\Website;
 
 class HomeController extends Controller
 {
@@ -51,16 +57,22 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $game = Game::find($id);
-        $video = GameVideo::find($game['videos']['0']);
-        //dd($video);
-        $data = [
-          'game' => $game,
-          'video' => $video
-        ];
-        return view('show_game')->with('data', $data);
+     public function show($id)
+     {
+       $game = Game::find($id);
+       $release_date = ReleaseDate::find($game['release_dates'][0]);
+       $platform = Platform::find($game['platforms'][0]);
+       $website = Website::find($game['websites'][0]);
+       $involved_companies = InvolvedCompany::find($game['involved_companies'][0]);
+       $company = Company::find($involved_companies['company']);
+       $data = [
+         'game' => $game,
+         'company' => $company,
+         'release_date' => $release_date,
+         'platform' => $platform,
+         'website' => $website
+       ];
+       return view('show_game')->with('data', $data);
     }
 
     /**
