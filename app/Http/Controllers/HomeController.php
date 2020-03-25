@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use MarcReichel\IGDBLaravel\Models\Game;
+use MarcReichel\IGDBLaravel\Models\GameVideo;
 use MarcReichel\IGDBLaravel\Models\ReleaseDate;
 
 class HomeController extends Controller
@@ -16,7 +17,9 @@ class HomeController extends Controller
     public function index()
     {
         //Return the homepage with a list of the latest releases.
-        $games = ReleaseDate::with(['game'])->whereBetween('date', strtotime('-2 month'), strtotime('now'))->orderBy('date', 'desc')->get();
+        //$games = ReleaseDate::with(['game'])->whereBetween('date', strtotime('-2 month'), strtotime('now'))->orderBy('date', 'desc')->get();
+        $games = ReleaseDate::with(['game'])->where('platform', 1)->orWhere('platform', 6)->whereBetween('date', strtotime('-2 months'), strtotime('now'))->orderBy('date', 'desc')->get();
+        //dd($games);
         return view('home')->with('games', $games);
     }
 
@@ -51,8 +54,13 @@ class HomeController extends Controller
     public function show($id)
     {
         $game = Game::find($id);
-        //dd($game);
-        return view('show_game')->with('game', $game);
+        $video = GameVideo::find($game['videos']['0']);
+        //dd($video);
+        $data = [
+          'game' => $game,
+          'video' => $video
+        ];
+        return view('show_game')->with('data', $data);
     }
 
     /**
