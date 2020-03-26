@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use MarcReichel\IGDBLaravel\Models\Artwork;
 use MarcReichel\IGDBLaravel\Models\Company;
 use MarcReichel\IGDBLaravel\Models\Cover;
@@ -12,6 +13,8 @@ use MarcReichel\IGDBLaravel\Models\InvolvedCompany;
 use MarcReichel\IGDBLaravel\Models\Platform;
 use MarcReichel\IGDBLaravel\Models\ReleaseDate;
 use MarcReichel\IGDBLaravel\Models\Website;
+
+use App\Test;
 
 class HomeController extends Controller
 {
@@ -48,7 +51,9 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $test = new Test;
+      $test->test = $request->input('fname');
+      $test->save();
     }
 
     /**

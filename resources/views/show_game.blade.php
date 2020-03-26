@@ -16,7 +16,13 @@
       <p>{{$data['game']['summary']}}</p>
       <p></p>
       <br>
-      </div>
+    </div>
+
+    <form method="POST" action="/home">
+    @csrf
+    <input type="text" id="fname" name="fname" value="hello">
+    <input type="submit" value="Submit">
+    </form>
   </div>
 </div>
 
