@@ -9,7 +9,8 @@ class Test extends Model
   //Table Name
   protected $table = 'test';
 
-  public $test = 'test';
+  protected $test = 'test';
+
   public $timestamps = false;
 }
 Test::all();

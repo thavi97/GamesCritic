@@ -17,4 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('home', 'HomeController');
+Route::resource('/new_games', 'NewGamesController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
