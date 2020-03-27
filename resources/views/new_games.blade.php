@@ -1,6 +1,7 @@
 @extends('layouts.template')
 @section('title', 'GamesCritic')
 @section('body')
+
 <div class="col-lg-12 text-center">
   <br><br>
   <h2>Here are the latest games!</h2>
