@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::resource('/new_games', 'NewGamesController');
 
+Route::resource('/profile', 'ProfileController');
+
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');

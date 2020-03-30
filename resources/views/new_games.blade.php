@@ -1,6 +1,6 @@
-@extends('layouts.template')
+@extends('layouts.app')
 @section('title', 'GamesCritic')
-@section('body')
+@section('content')
 
 <div class="col-lg-12 text-center">
   <br><br>
