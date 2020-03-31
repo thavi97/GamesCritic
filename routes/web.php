@@ -26,6 +26,8 @@ Route::patch('/profile/{id}',[
     'uses' => 'ProfileController@update'
 ]);
 
+Route::resource('/changepassword', 'ChangePasswordController');
+
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
