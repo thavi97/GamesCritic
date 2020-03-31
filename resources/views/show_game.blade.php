@@ -1,6 +1,6 @@
-@extends('layouts.template')
+@extends('layouts.app')
 @section('title', 'GamesCritic - ' . $data['game']['name'])
-@section('body')
+@section('content')
 
 <div class="container" style="margin-top:30px">
   <div class="row">

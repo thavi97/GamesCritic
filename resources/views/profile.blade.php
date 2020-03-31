@@ -10,5 +10,8 @@
   <div class="row row-cols-1 row-cols-md-3">
     Hello, {{$data['forename']}}!
   </div>
+  <div class="row row-cols-1 row-cols-md-3">
+    <a href="/profile/{{$data['id']}}/edit">Edit Profile</a>
+  </div>
 </div>
 @endsection

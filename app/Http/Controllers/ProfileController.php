@@ -24,9 +24,11 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
       $data = [
+        'id' => Auth::user()->id,
         'forename' => Auth::user()->forename,
       ];
         return view('profile')->with('data', $data);
@@ -78,7 +80,13 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user = Auth::user();
+      $data = [
+        'forename' => $user->forename,
+        'surname' => $user->surname,
+        'email' => $user->email,
+      ];
+      return view('edit_profile')->with('data', $data);
     }
 
     /**
@@ -90,7 +98,21 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $user = Auth::user();
+      $user->forename = $request->input('forename');
+      $user->surname = $request->input('surname');
+      $user->email = $request->input('email');
+      $user->save();
+      return redirect('/profile');
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'forename' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        ]);
     }
 
     /**

@@ -21,6 +21,11 @@ Route::resource('/new_games', 'NewGamesController');
 
 Route::resource('/profile', 'ProfileController');
 
+Route::patch('/profile/{id}',[
+    'as' => 'user.profile.update',
+    'uses' => 'ProfileController@update'
+]);
+
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
