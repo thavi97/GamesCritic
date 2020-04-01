@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-sm-4">
 
-      <h4><a href="{{$data['website']['url']}}">Visit Game</a></h4>
+      <h4><a href="{{$data['website']['url']}}">Visit Website</a></h4>
       <hr class="d-sm-none">
     </div>
     <div class="col-sm-8">
