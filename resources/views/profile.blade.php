@@ -7,14 +7,26 @@
   <br>
 </div>
 <div class="container container-fluid">
-  <div class="row row-cols-1 row-cols-md-3">
-    Hello, {{$data['forename']}}!
-  </div>
-  <div class="row row-cols-1 row-cols-md-3">
-    <a href="/profile/{{$data['id']}}/edit">Edit Profile</a>
-  </div>
-  <div class="row row-cols-1 row-cols-md-3">
-    <a href="/changepassword">Change Password</a>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="row row-cols-1 row-cols-md-3">
+        Hello, {{$data['forename']}}!
+      </div>
+      <div class="row row-cols-1 row-cols-md-3">
+        <a href="/profile/{{$data['id']}}/edit">Edit Profile</a>
+      </div>
+      <div class="row row-cols-1 row-cols-md-3">
+        <a href="/changepassword">Change Password</a>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <h4>Your Wishlist</h4>
+      <ul class="list-group">
+        @foreach($data['games'] as $wishlist_item)
+          <li class="list-group-item">{{$wishlist_item[0]['name']}}</li>
+        @endforeach
+      </ul>
+    </div>
   </div>
 </div>
 @endsection
