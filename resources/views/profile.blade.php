@@ -23,7 +23,15 @@
       <h4>Your Wishlist</h4>
       <ul class="list-group">
         @foreach($data['games'] as $wishlist_item)
-          <li class="list-group-item">{{$wishlist_item[0]['name']}}</li>
+          <li class="list-group-item">
+            {{$wishlist_item[0]['name']}}
+            <form method="POST" action="/profile/{{$data['id']}}" class="pull-right">
+              @csrf
+              @method('DELETE')
+              <input type="hidden" id="item_id" name="item_id" value="{{$wishlist_item[0]['id']}}">
+              <button type="submit" class="btn btn-primary">Remove</button>
+            </form>
+          </li>
         @endforeach
       </ul>
     </div>

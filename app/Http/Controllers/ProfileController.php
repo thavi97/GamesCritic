@@ -133,8 +133,10 @@ class ProfileController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function destroy($id)
+  public function destroy(Request $request, $id)
   {
-    //
+    $wishlist = Wishlist::where('user_id', Auth::user()->id)->where('item_id', $request->input('item_id'));
+    $wishlist->delete();
+    return redirect('profile');
   }
 }

@@ -28,6 +28,8 @@ Route::patch('/profile/{id}',[
 
 Route::resource('/changepassword', 'ChangePasswordController');
 
+Route::get('/remove_wishlist', 'WishlistController@index');
+
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
