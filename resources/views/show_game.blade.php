@@ -18,12 +18,6 @@
       <p></p>
       <br>
     </div>
-
-    <form method="POST" action="/new_games">
-    @csrf
-    <input type="text" id="fname" name="fname" value="hello">
-    <input type="submit" value="Submit">
-    </form>
   </div>
 </div>
 
